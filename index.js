@@ -1,5 +1,8 @@
 import postcss from 'postcss';
-import valueParser from 'postcss-values-parser';
+import { parse } from 'postcss-values-parser';
+import Punctuation from 'postcss-values-parser/lib/nodes/Punctuation';
+import Numeric from 'postcss-values-parser/lib/nodes/Numeric';
+import Func from 'postcss-values-parser/lib/nodes/Func';
 
 export default postcss.plugin('postcss-color-hex-alpha', opts => {
 	// whether to preserve the original hexa
@@ -10,7 +13,7 @@ export default postcss.plugin('postcss-color-hex-alpha', opts => {
 		root.walkDecls(decl => {
 			if (hasAlphaHex(decl)) {
 				// replace instances of hexa with rgba()
-				const ast = valueParser(decl.value).parse();
+				const ast = parse(decl.value);
 
 				walk(ast, node => {
 					if (isAlphaHex(node)) {
@@ -75,17 +78,15 @@ const hexa2rgba = node => {
 	];
 
 	// return a new rgba function, preserving the whitespace of the original node
-	const rgbaFunc = valueParser.func({ value: 'rgba', raws: Object.assign({}, node.raws) });
+	const rgbaFunc = new Func({ name: 'rgba', raws: Object.assign({}, node.raws) });
 
-	rgbaFunc.append(valueParser.paren({ value: '(' }));
-	rgbaFunc.append(valueParser.number({ value: r }));
-	rgbaFunc.append(valueParser.comma({ value: ',' }));
-	rgbaFunc.append(valueParser.number({ value: g }));
-	rgbaFunc.append(valueParser.comma({ value: ',' }));
-	rgbaFunc.append(valueParser.number({ value: b }));
-	rgbaFunc.append(valueParser.comma({ value: ',' }));
-	rgbaFunc.append(valueParser.number({ value: a }));
-	rgbaFunc.append(valueParser.paren({ value: ')' }));
+	rgbaFunc.append(new Numeric({ value: r }));
+	rgbaFunc.append(new Punctuation({ value: ',' }));
+	rgbaFunc.append(new Numeric({ value: g }));
+	rgbaFunc.append(new Punctuation({ value: ',' }));
+	rgbaFunc.append(new Numeric({ value: b }));
+	rgbaFunc.append(new Punctuation({ value: ',' }));
+	rgbaFunc.append(new Numeric({ value: a }));
 
 	return rgbaFunc;
 };
