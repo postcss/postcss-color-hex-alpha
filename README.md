@@ -1,3 +1,6 @@
+<div align="center">⚠️ PostCSS Color Hex Alpha was moved to <a href="https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-color-hex-alpha">@csstools/postcss-plugins</a>. ⚠️ <br>
+<a href="https://github.com/csstools/postcss-plugins/discussions/75">Read the announcement</a></div>
+
 # PostCSS Color Hex Alpha [<img src="https://postcss.github.io/postcss/logo.svg" alt="PostCSS" width="90" height="90" align="right">][postcss]
 
 [![NPM Version][npm-img]][npm-url]
@@ -74,7 +77,7 @@ body {
 
 [cli-img]: https://github.com/postcss/postcss-color-hex-alpha/workflows/test/badge.svg
 [cli-url]: https://github.com/postcss/postcss-color-hex-alpha/actions/workflows/test.yml?query=workflow/test
-[css-img]: https://cssdb.org/badge/hexadecimal-alpha-notation.svg
+[css-img]: https://cssdb.org/images/badges/hexadecimal-alpha-notation.svg
 [css-url]: https://cssdb.org/#hexadecimal-alpha-notation
 [git-img]: https://img.shields.io/badge/support-chat-blue.svg
 [git-url]: https://gitter.im/postcss/postcss
