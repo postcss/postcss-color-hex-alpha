@@ -77,7 +77,7 @@ body {
 
 [cli-img]: https://github.com/postcss/postcss-color-hex-alpha/workflows/test/badge.svg
 [cli-url]: https://github.com/postcss/postcss-color-hex-alpha/actions/workflows/test.yml?query=workflow/test
-[css-img]: https://cssdb.org/badge/hexadecimal-alpha-notation.svg
+[css-img]: https://cssdb.org/images/badges/hexadecimal-alpha-notation.svg
 [css-url]: https://cssdb.org/#hexadecimal-alpha-notation
 [git-img]: https://img.shields.io/badge/support-chat-blue.svg
 [git-url]: https://gitter.im/postcss/postcss
